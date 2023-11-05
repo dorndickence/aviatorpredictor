@@ -1,17 +1,16 @@
-function obtenerHoraActual() {
-    var fecha = new Date();
-    var hora = fecha.getHours();
-    var minutos = fecha.getMinutes();
-    var segundos = fecha.getSeconds();
-    hora = hora < 10 ? "0" + hora : hora;
-    minutos = minutos < 10 ? "0" + minutos : minutos;
-    segundos = segundos < 10 ? "0" + segundos : segundos;
-    var horaActual = hora + ":" + minutos + ":" + segundos;
-    return horaActual;
+function getCurrentTime() {
+    var date = new Date();
+    var hour = date.getHours();
+    var minutes = date.getMinutes();
+    var seconds = date.getSeconds();
+    hour = hour < 10 ? "0" + hour : hour;
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+    var currentTime = hour + ":" + minutes + ":" + seconds;
+    return currentTime;
   }
-  function actualizarReloj() {
-    var horaActual = obtenerHoraActual();
-    $("#reloj").text(horaActual);
-    setTimeout(actualizarReloj, 1000);
+  function updateClock() {
+    var currentTime = getCurrentTime();
+    $("#clock").text(currentTime);
+    setTimeout(updateClock, 1000);
   }
-  
